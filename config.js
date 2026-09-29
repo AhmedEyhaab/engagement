@@ -12,7 +12,7 @@ window.SITE_CONFIG = {
 
   // ---------- When ----------
   event: {
-    date: '2026-10-14',        // YYYY-MM-DD
+    date: '2026-10-16',        // YYYY-MM-DD
     time: '19:00',             // 24-hour HH:mm  (19:00 = 7:00 pm)
     // IANA time zone of the venue. The countdown is calculated for this zone
     // (daylight saving handled automatically), so every guest sees the same
