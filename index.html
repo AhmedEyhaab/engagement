@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Waiting for our Engagement! 💍</title>
+<meta id="metaDesc" name="description" content="Join the countdown to our engagement!" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💍</text></svg>" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&family=Cormorant+Garamond:wght@300;400;500&family=Playfair+Display:wght@400;500&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg: #f2e9db;
+    --card-bg: #f7f1e6;
+    --border: #8a7157;
+    --border-soft: #c9b79b;
+    --text-dark: #4a3826;
+    --text-mid: #75604a;
+    --rose: #d97e89;
+    --rose-dark: #c56773;
+    --beige-btn: #d3c6ac;
+    --beige-btn-text: #4a3826;
+  }
+
+  *{ box-sizing: border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin: 0;
+    min-height: 100vh;
+    background: radial-gradient(circle at 20% 0%, #f6efe2 0%, var(--bg) 55%, #eee2cf 100%);
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-dark);
+    overflow-x: hidden;
+    padding: 40px 16px 80px;
+    position: relative;
+  }
+
+  .page{
+    max-width: 460px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  /* ---------- decorative branches ---------- */
+  .branch{
+    position: absolute;
+    stroke: var(--border-soft);
+    fill: none;
+    opacity: 0.55;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .branch-right{ top: 60%; right: -60px; width: 110px; height: 260px; }
+  .branch-left{ top: -10px; left: -50px; width: 90px; height: 200px; transform: scaleX(-1); opacity: 0.35; }
+  @media (max-width: 480px){
+    .branch{ display: none; }
+  }
+
+  /* ---------- main card ---------- */
+  .card{
+    position: relative;
+    z-index: 1;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 190px 190px 26px 26px;
+    padding: 56px 30px 40px;
+    text-align: center;
+    box-shadow: 0 18px 40px rgba(90, 68, 40, 0.10);
+  }
+
+  .rings{
+    font-size: 2.1rem;
+    line-height: 1;
+    margin-bottom: 6px;
+    filter: drop-shadow(0 2px 3px rgba(0,0,0,0.15));
+  }
+
+  .script-heading{
+    font-family: 'Mrs Saint Delafield', cursive;
+    font-weight: 400;
+    color: var(--text-dark);
+    font-size: clamp(2.3rem, 9vw, 3rem);
+    line-height: 1.15;
+    margin: 6px 0 18px;
+  }
+  .script-heading .ring-emoji{
+    font-size: 0.65em;
+    vertical-align: -0.05em;
+  }
+
+  .divider{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 62%;
+    margin: 0 auto 20px;
+  }
+  .divider .line{ flex: 1; height: 1px; background: var(--border-soft); }
+  .divider .icon{ color: var(--border); font-size: 0.95rem; }
+
+  .join-text{
+    font-size: 1.15rem;
+    font-weight: 500;
+    margin: 0 0 26px;
+  }
+
+  /* ---------- countdown ---------- */
+  .countdown{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+  }
+  .time-box{
+    background: transparent;
+    border: 1px solid var(--border-soft);
+    border-radius: 14px;
+    padding: 14px 6px 10px;
+    width: 72px;
+  }
+  .time-box span{
+    display: block;
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    font-variant-numeric: tabular-nums;
+  }
+  .time-box small{
+    display: block;
+    margin-top: 4px;
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    color: var(--text-mid);
+    font-weight: 500;
+  }
+
+  /* ---------- buttons ---------- */
+  .buttons-row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 26px;
+    position: relative;
+  }
+
+  .btn-yes{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: #fff;
+    background: linear-gradient(135deg, var(--rose), var(--rose-dark));
+    border: none;
+    border-radius: 30px;
+    padding: 14px 38px;
+    cursor: pointer;
+    box-shadow: 0 8px 18px rgba(197, 103, 115, 0.38);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .btn-yes:hover{ transform: translateY(-2px); box-shadow: 0 10px 22px rgba(197, 103, 115, 0.48); }
+  .btn-yes:active{ transform: translateY(0); }
+
+  .btn-yes:focus-visible, .btn-no:focus-visible{
+    outline: 3px solid #8a7157;
+    outline-offset: 3px;
+  }
+
+  /* the placeholder just reserves the No button's original spot in the layout */
+  .no-placeholder{
+    width: 118px;
+    height: 51px;
+    visibility: hidden;
+  }
+
+  .btn-no{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--beige-btn-text);
+    background: var(--beige-btn);
+    border: none;
+    border-radius: 30px;
+    padding: 14px 30px;
+    cursor: pointer;
+    position: fixed;
+    z-index: 60;
+    transition: left 0.32s cubic-bezier(.2,.9,.3,1.2), top 0.32s cubic-bezier(.2,.9,.3,1.2), transform 0.15s ease;
+    box-shadow: 0 6px 14px rgba(90,68,40,0.18);
+    white-space: nowrap;
+  }
+  .btn-no.dodging{ transform: scale(0.94) rotate(-4deg); }
+
+  .small-divider{
+    font-size: 0.95rem;
+    color: var(--border);
+    letter-spacing: 0.2em;
+  }
+
+  /* ---------- invite reveal card ---------- */
+  .invite-wrap{
+    opacity: 0;
+    transform: translateY(30px);
+    pointer-events: none;
+    transition: opacity 0.7s ease, transform 0.7s ease;
+    margin-top: 54px;
+  }
+  .invite-wrap.show{
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .invite-caption{
+    text-align: center;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    color: var(--text-mid);
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+
+  .invite-image-frame{
+    border-radius: 26px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: 0 18px 40px rgba(90, 68, 40, 0.18);
+    background: var(--card-bg);
+  }
+
+  .invite-image{
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  /* ---------- floating hearts ---------- */
+  .floating-heart{
+    position: fixed;
+    top: -8vh;
+    pointer-events: none;
+    z-index: 200;
+    animation-name: fall;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+  }
+  @keyframes fall{
+    to{ transform: translateY(112vh) rotate(340deg); opacity: 0.15; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation: none !important; transition: none !important; }
+  }
+
+  /* ---------- generated invitation card (driven by config.js) ---------- */
+  .inv{
+    --ink: #3f342a;
+    position: relative;
+    aspect-ratio: 924 / 1302;
+    container-type: inline-size;
+    background: #f9f4e8;
+    color: var(--ink);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    overflow: hidden;
+  }
+  .inv > *{ position: absolute; margin: 0; }
+  .inv-frame{ inset: 0; width: 100%; height: 100%; fill: none; stroke: #6b6154; stroke-width: 5; }
+  .inv-rings{ left: 42.5%; top: 15.5%; width: 16%; fill: none; stroke: #a89f94; stroke-width: 1.6; }
+  .inv-vert{
+    left: 5.6%; top: 41.5%;
+    writing-mode: vertical-rl; transform: rotate(180deg);
+    font-size: 6.4cqw; font-weight: 400; letter-spacing: .26em; white-space: nowrap;
+  }
+  .inv-date{
+    right: 1.5%; top: 19%; width: 20%; text-align: center;
+    font-size: 7cqw; font-weight: 400; line-height: 1.3; display: flex; flex-direction: column;
+  }
+  .inv-body{ left: 19.3%; top: 40cqw; width: 56%; }
+  .inv-for{ font-size: 2.5cqw; letter-spacing: .12em; text-transform: uppercase; font-weight: 500; }
+  .inv-names{ margin-top: 3cqw; }
+  .inv-name{
+    display: block; white-space: nowrap;
+    font-family: 'Mrs Saint Delafield', cursive; font-size: 20cqw; line-height: .85;
+  }
+  .inv-and{
+    display: block; margin: -1cqw 0 -2cqw 4cqw;
+    font-family: 'Mrs Saint Delafield', cursive; font-size: 6.5cqw; line-height: 1;
+  }
+  .inv-bride{ margin-left: 12cqw; }
+  .inv-loc{ margin-top: 7cqw !important; font-size: 2.6cqw; letter-spacing: .1em; text-transform: uppercase; font-weight: 500; line-height: 1.6; }
+  .inv-time{ margin-top: 5cqw !important; font-size: 3.7cqw; font-weight: 400; }
+  /* numerals need a clear "1" (Cormorant's 1 looks like an I), so date & time use Playfair with lining figures */
+  .inv-date, .inv-time{ font-family: 'Playfair Display', 'Times New Roman', serif; font-variant-numeric: lining-nums; }
+  .inv-leaf{ left: 70%; top: 52.5%; width: 13%; fill: none; stroke: #3f342a; stroke-width: 1.4; }
+  .inv-scan{ left: 38%; width: 31%; top: 84.5%; text-align: right; font-size: 2.3cqw; letter-spacing: .12em; text-transform: uppercase; font-weight: 500; }
+  .inv-qr{ left: 72%; top: 80%; width: 12.5%; line-height: 0; }
+  .inv-qr svg{ width: 100%; height: auto; display: block; }
+  .invite-map{ text-align: center; margin: 16px 0 0; }
+  .invite-map a{ color: var(--text-dark); font-size: 0.95rem; font-weight: 500; text-decoration: underline; text-underline-offset: 4px; }
+</style>
+</head>
+<body>
+
+  <div class="page">
+
+    <svg class="branch branch-right" viewBox="0 0 110 260" xmlns="http://www.w3.org/2000/svg">
+      <path d="M55 0 C 45 40, 65 70, 55 110 S 45 190, 55 260" stroke-width="1.4"/>
+      <g stroke-width="1.1">
+        <ellipse cx="38" cy="35" rx="9" ry="4.5" transform="rotate(-35 38 35)"/>
+        <ellipse cx="72" cy="55" rx="9" ry="4.5" transform="rotate(35 72 55)"/>
+        <ellipse cx="35" cy="95" rx="9" ry="4.5" transform="rotate(-35 35 95)"/>
+        <ellipse cx="70" cy="120" rx="9" ry="4.5" transform="rotate(35 70 120)"/>
+        <ellipse cx="35" cy="160" rx="9" ry="4.5" transform="rotate(-35 35 160)"/>
+        <ellipse cx="70" cy="190" rx="9" ry="4.5" transform="rotate(35 70 190)"/>
+        <ellipse cx="38" cy="225" rx="9" ry="4.5" transform="rotate(-35 38 225)"/>
+      </g>
+    </svg>
+
+    <svg class="branch branch-left" viewBox="0 0 90 200" xmlns="http://www.w3.org/2000/svg">
+      <path d="M45 0 C 35 30, 55 55, 45 90 S 35 150, 45 200" stroke-width="1.2"/>
+      <g stroke-width="1">
+        <ellipse cx="28" cy="28" rx="7" ry="3.5" transform="rotate(-35 28 28)"/>
+        <ellipse cx="60" cy="45" rx="7" ry="3.5" transform="rotate(35 60 45)"/>
+        <ellipse cx="26" cy="80" rx="7" ry="3.5" transform="rotate(-35 26 80)"/>
+        <ellipse cx="58" cy="105" rx="7" ry="3.5" transform="rotate(35 58 105)"/>
+      </g>
+    </svg>
+
+    <main class="card">
+      <div class="rings">💍</div>
+      <h1 class="script-heading" id="heading">Waiting for<br>our Engagement!</h1>
+
+      <div class="divider"><span class="line"></span><span class="icon">♡</span><span class="line"></span></div>
+
+      <p class="join-text" id="joinText">Join us! <span>❤️</span></p>
+
+      <div class="countdown" aria-live="polite">
+        <div class="time-box"><span id="days">00</span><small>DAYS</small></div>
+        <div class="time-box"><span id="hours">00</span><small>HOURS</small></div>
+        <div class="time-box"><span id="minutes">00</span><small>MINUTES</small></div>
+        <div class="time-box"><span id="seconds">00</span><small>SECONDS</small></div>
+      </div>
+
+      <div class="buttons-row">
+        <button class="btn-yes" id="yesBtn">Yes <span>♥</span></button>
+        <div class="no-placeholder" id="noPlaceholder"></div>
+      </div>
+
+      <div class="divider small-divider-wrap"><span class="line"></span><span class="icon">🌿</span><span class="line"></span></div>
+    </main>
+
+    <!-- the real No button floats freely and dodges the cursor/finger -->
+    <button class="btn-no" id="noBtn" aria-label="No — this button cannot be pressed">No 🙈</button>
+
+    <div class="invite-wrap" id="inviteWrap">
+      <p class="invite-caption" id="inviteCaption"></p>
+      <div class="invite-image-frame" id="inviteFrame">
+        <div class="inv" id="inv" role="img">
+          <svg class="inv-frame" viewBox="0 0 924 1302" aria-hidden="true"><path d="M92 497V484A374 374 0 0 1 757 249"/><path d="M92 1125Q92 1192 160 1192H768Q840 1192 840 1120V560"/></svg>
+          <svg class="inv-rings" viewBox="0 0 150 100" aria-hidden="true"><path d="M7 62v8a38 14 0 0 0 76 0v-8"/><ellipse cx="45" cy="62" rx="38" ry="14"/><g transform="rotate(-38 105 40)"><path d="M67 40v8a38 14 0 0 0 76 0v-8"/><ellipse cx="105" cy="40" rx="38" ry="14"/></g></svg>
+          <div class="inv-vert" id="invSave"></div>
+          <div class="inv-date" aria-hidden="true"><span id="invD"></span><span id="invM"></span><span id="invY"></span></div>
+          <div class="inv-body" aria-hidden="true">
+            <p class="inv-for" id="invFor"></p>
+            <div class="inv-names"><span class="inv-name" id="invGroom"></span><span class="inv-and" id="invAnd"></span><span class="inv-name inv-bride" id="invBride"></span></div>
+            <p class="inv-loc" id="invLoc"></p>
+            <p class="inv-time" id="invTime"></p>
+          </div>
+          <div class="inv-scan" id="invScan" aria-hidden="true"></div>
+          <div class="inv-qr" id="invQr" aria-hidden="true"></div>
+          <svg class="inv-leaf" viewBox="0 0 125 340" aria-hidden="true"><path d="M60 338C40 290 92 262 62 210S48 120 72 8"/><ellipse cx="38" cy="300" rx="13" ry="5.5" transform="rotate(-35 38 300)"/><ellipse cx="88" cy="262" rx="13" ry="5.5" transform="rotate(35 88 262)"/><ellipse cx="36" cy="225" rx="13" ry="5.5" transform="rotate(-35 36 225)"/><ellipse cx="86" cy="190" rx="13" ry="5.5" transform="rotate(35 86 190)"/><ellipse cx="38" cy="150" rx="13" ry="5.5" transform="rotate(-35 38 150)"/><ellipse cx="84" cy="118" rx="13" ry="5.5" transform="rotate(35 84 118)"/><ellipse cx="44" cy="78" rx="13" ry="5.5" transform="rotate(-35 44 78)"/><ellipse cx="76" cy="40" rx="13" ry="5.5" transform="rotate(35 76 40)"/></svg>
+        </div>
+      </div>
+      <p class="invite-map" id="mapWrap" hidden><a id="mapLink" target="_blank" rel="noopener"></a></p>
+    </div>
+
+  </div>
+
+<script src="assets/qrcode.js"></script>
+<script src="config.js"></script>
+<script>
+  // ---------- Config (edit config.js — not this file) ----------
+  var DEFAULTS = {
+    groom: 'Groom', bride: 'Bride',
+    event: { date: '', time: '19:00', timeZone: '' },
+    venue: { location: '', hall: '', mapsUrl: '' }, qr: { show: true },
+    text: {
+      pageTitle: 'Waiting for our Engagement! 💍', heading: ['Waiting for', 'our Engagement!'],
+      joinText: 'Join us! ❤️', yesButton: 'Yes ♥', noButton: 'No 🙈',
+      inviteCaption: "You said yes! Here's the invitation", inviteTagline: 'For the engagement of',
+      saveTheDate: 'save the date', and: 'and', locationLabel: 'Location', hallLabel: 'Hall',
+      scanLabel: 'Scan for location', openMaps: '📍 Open in Google Maps'
+    },
+    invitation: { image: null }, dodgeDistance: { mouse: 95, touch: 85 }, theme: {}
+  };
+  function merge(a, b){
+    var o = {}, k;
+    for (k in a) o[k] = a[k];
+    for (k in (b || {})) o[k] = (a[k] && typeof a[k] === 'object' && !Array.isArray(a[k]) && b[k] && typeof b[k] === 'object') ? merge(a[k], b[k]) : b[k];
+    return o;
+  }
+  var CFG = merge(DEFAULTS, window.SITE_CONFIG);
+  var $ = function(id){ return document.getElementById(id); };
+  function esc(t){ return String(t).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+
+  // Wall-clock time in a given IANA zone -> epoch ms (DST-aware). No zone = visitor's local time.
+  function zoneOffsetMs(epoch, tz){
+    var o = {};
+    new Intl.DateTimeFormat('en-US', { timeZone: tz, hourCycle: 'h23', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' })
+      .formatToParts(new Date(epoch)).forEach(function(p){ o[p.type] = p.value; });
+    return Date.UTC(+o.year, +o.month - 1, +o.day, +o.hour, +o.minute, +o.second) - epoch;
+  }
+  function toEpoch(date, time, tz){
+    var d = /^(\d{4})-(\d{2})-(\d{2})$/.exec(date), t = /^(\d{1,2}):(\d{2})$/.exec(time);
+    if (!d || !t) return NaN;
+    var y = +d[1], m = +d[2] - 1, day = +d[3], h = +t[1], mi = +t[2];
+    if (!tz) return new Date(y, m, day, h, mi).getTime();
+    var wall = Date.UTC(y, m, day, h, mi), r = wall - zoneOffsetMs(wall, tz), off2 = zoneOffsetMs(r, tz);
+    return wall - off2;
+  }
+
+  var E = CFG.event, V = CFG.venue, T = CFG.text;
+  var ymd = /^(\d{4})-(\d{2})-(\d{2})$/.exec(E.date) || [], hm = /^(\d{1,2}):(\d{2})$/.exec(E.time) || [];
+  CFG.targetMs = toEpoch(E.date, E.time, E.timeZone);
+  if (isNaN(CFG.targetMs)) console.error('config.js: event.date must be YYYY-MM-DD and event.time must be HH:mm');
+
+  var timeLabel = hm[1] ? (((+hm[1]) % 12) || 12) + ':' + hm[2] + ' ' + (+hm[1] < 12 ? 'am' : 'pm') : '';
+  var dateLabel = ymd[1] ? new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' })
+    .format(new Date(Date.UTC(+ymd[1], +ymd[2] - 1, +ymd[3]))) : '';
+  var summary = 'Save the date — engagement of ' + CFG.groom + ' and ' + CFG.bride +
+    (dateLabel ? ', ' + dateLabel : '') + (timeLabel ? ' at ' + timeLabel : '') +
+    (V.location ? ', ' + V.location : '') + (V.hall ? ', ' + T.hallLabel + ' ' + V.hall : '');
+
+  // Google Maps link: explicit venue.mapsUrl, else a Maps search built from the location text
+  var mapsUrl = V.mapsUrl || (V.location ? 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(V.location) : '');
+  if (mapsUrl){
+    $('mapLink').href = mapsUrl;
+    $('mapLink').textContent = T.openMaps;
+    $('mapWrap').hidden = false;
+  }
+
+  document.title = T.pageTitle;
+  $('metaDesc').setAttribute('content', CFG.groom + ' & ' + CFG.bride + ' are waiting for their engagement — join the countdown!');
+  $('heading').innerHTML = T.heading.map(esc).join('<br>');
+  $('joinText').textContent = T.joinText;
+  $('yesBtn').textContent = T.yesButton;
+  $('noBtn').textContent = T.noButton;
+  $('inviteCaption').textContent = T.inviteCaption;
+  Object.keys(CFG.theme).forEach(function(k){ document.documentElement.style.setProperty('--' + k, CFG.theme[k]); });
+
+  if (CFG.invitation.image){
+    $('inviteFrame').innerHTML = '<img class="invite-image" src="' + esc(CFG.invitation.image) + '" alt="' + esc(summary) + '" loading="lazy" />';
+  } else {
+    $('inv').setAttribute('aria-label', summary);
+    $('invSave').textContent = T.saveTheDate;
+    $('invD').textContent = ymd[3] ? +ymd[3] : '';
+    $('invM').textContent = ymd[2] ? +ymd[2] : '';
+    $('invY').textContent = ymd[1] || '';
+    $('invFor').textContent = T.inviteTagline;
+    $('invGroom').textContent = CFG.groom;
+    $('invAnd').textContent = T.and;
+    $('invBride').textContent = CFG.bride;
+    $('invLoc').innerHTML = (V.location ? esc(T.locationLabel) + ': ' + esc(V.location) : '') + (V.hall ? '<br>' + esc(T.hallLabel) + ': ' + esc(V.hall) : '');
+    $('invTime').textContent = timeLabel ? 'At ' + timeLabel : '';
+    if (mapsUrl && CFG.qr.show && window.qrcode){
+      var qr = qrcode(0, 'M'); qr.addData(mapsUrl); qr.make();
+      $('invQr').innerHTML = qr.createSvgTag({ cellSize: 1, margin: 2, scalable: true })
+        .replace('fill="white"', 'fill="#f9f4e8"').replace(/fill="black"/g, 'fill="#3f342a"');
+      $('invScan').textContent = T.scanLabel;
+    }
+
+    // shrink very long names so they never overflow the card
+    var fitNames = function(){
+      var box = document.querySelector('.inv-body').clientWidth;
+      ['invGroom', 'invBride'].forEach(function(id){
+        var el = $(id); el.style.fontSize = '';
+        var extra = id === 'invBride' ? parseFloat(getComputedStyle(el).marginLeft) : 0;
+        var w = el.scrollWidth + extra;
+        if (w > box) el.style.fontSize = (20 * box / w) + 'cqw';
+      });
+    };
+    fitNames();
+    window.addEventListener('resize', fitNames);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitNames);
+  }
+
+  // ---------- Countdown ----------
+  var target = CFG.targetMs;
+
+  function pad(n){ return String(n).padStart(2, '0'); }
+
+  function updateCountdown(){
+    var now = Date.now();
+    var diff = target - now;
+    if (diff < 0) diff = 0;
+
+    var days = Math.floor(diff / 86400000);
+    var hours = Math.floor((diff % 86400000) / 3600000);
+    var minutes = Math.floor((diff % 3600000) / 60000);
+    var seconds = Math.floor((diff % 60000) / 1000);
+
+    document.getElementById('days').textContent = pad(days);
+    document.getElementById('hours').textContent = pad(hours);
+    document.getElementById('minutes').textContent = pad(minutes);
+    document.getElementById('seconds').textContent = pad(seconds);
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // ---------- Runaway "No" button ----------
+  var noBtn = document.getElementById('noBtn');
+  var placeholder = document.getElementById('noPlaceholder');
+  var hasMoved = false;
+
+  function placeAtStart(){
+    if (hasMoved) return;
+    var rect = placeholder.getBoundingClientRect();
+    noBtn.style.left = rect.left + 'px';
+    noBtn.style.top = rect.top + 'px';
+  }
+
+  function randomPosition(){
+    var w = noBtn.offsetWidth || 120;
+    var h = noBtn.offsetHeight || 50;
+    var margin = 16;
+    var maxX = Math.max(margin, window.innerWidth - w - margin);
+    var maxY = Math.max(margin, window.innerHeight - h - margin);
+    var x = margin + Math.random() * (maxX - margin);
+    var y = margin + Math.random() * (maxY - margin);
+    noBtn.style.left = x + 'px';
+    noBtn.style.top = y + 'px';
+  }
+
+  function dodge(){
+    hasMoved = true;
+    noBtn.classList.add('dodging');
+    randomPosition();
+    setTimeout(function(){ noBtn.classList.remove('dodging'); }, 200);
+  }
+
+  function distanceToButton(x, y){
+    var rect = noBtn.getBoundingClientRect();
+    var cx = rect.left + rect.width / 2;
+    var cy = rect.top + rect.height / 2;
+    return Math.hypot(x - cx, y - cy);
+  }
+
+  window.addEventListener('load', placeAtStart);
+  window.addEventListener('resize', function(){
+    if (!hasMoved) placeAtStart();
+  });
+
+  document.addEventListener('mousemove', function(e){
+    if (distanceToButton(e.clientX, e.clientY) < CFG.dodgeDistance.mouse) dodge();
+  });
+
+  document.addEventListener('touchmove', function(e){
+    var t = e.touches[0];
+    if (t && distanceToButton(t.clientX, t.clientY) < CFG.dodgeDistance.touch) dodge();
+  }, { passive: true });
+
+  noBtn.addEventListener('touchstart', function(e){
+    e.preventDefault();
+    dodge();
+  }, { passive: false });
+
+  noBtn.addEventListener('click', function(e){
+    e.preventDefault();
+    dodge();
+  });
+
+  // ---------- "Yes" reveal ----------
+  var yesBtn = document.getElementById('yesBtn');
+  var inviteWrap = document.getElementById('inviteWrap');
+  var celebrated = false;
+
+  yesBtn.addEventListener('click', function(){
+    inviteWrap.classList.add('show');
+    setTimeout(function(){
+      inviteWrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 80);
+    if (!celebrated){
+      celebrated = true;
+      launchHearts();
+    }
+  });
+
+  function launchHearts(){
+    var emojis = ['❤️', '💍', '🤍', '💐'];
+    for (var i = 0; i < 20; i++){
+      (function(){
+        setTimeout(function(){
+          var el = document.createElement('div');
+          el.className = 'floating-heart';
+          el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+          el.style.left = (Math.random() * 96) + 'vw';
+          el.style.fontSize = (16 + Math.random() * 18) + 'px';
+          el.style.animationDuration = (2.6 + Math.random() * 2) + 's';
+          document.body.appendChild(el);
+          setTimeout(function(){ el.remove(); }, 5200);
+        }, i * 70);
+      })();
+    }
+  }
+</script>
+</body>
+</html>
